@@ -1,0 +1,22 @@
+{
+  "name": "codeforces-client",
+  "version": "0.0.0",
+  "description": "Codeforces API Wrapper",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khaled-hamam/codeforces-client.git"
+  },
+  "keywords": [
+    "codeforces"
+  ],
+  "author": "Khaled Hamam (khaled.hamam@outlook.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khaled-hamam/codeforces-client/issues"
+  },
+  "homepage": "https://github.com/khaled-hamam/codeforces-client#readme"
+}
