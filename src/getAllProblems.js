@@ -36,74 +36,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.GetAllHandles = void 0;
+exports.GetAllProblems = void 0;
 var CodeforcesClient_1 = require("./CodeforcesClient");
-var fs = require('fs');
-// Filestream
-var logger = fs.createWriteStream('handles.xml', {
-    flags: 'a' // 'a' means appending (old data will be preserved)
-});
-var handleFormat = function (handle) { return __awaiter(void 0, void 0, void 0, function () {
-    var arr;
-    return __generator(this, function (_a) {
-        arr = [
-            '<team>',
-            "<id> ".concat(1, " </id>"),
-            "<name> ".concat(handle, " </name>"),
-            "<university> AinShames </university>",
-            "<nationality> Egyption </nationality>",
-            "<icpc-id> ".concat(1, " </icpc-id>"),
-            '</team>',
-        ];
-        arr.forEach(function (element) { return __awaiter(void 0, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, logger.write(element)];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        }); });
-        return [2 /*return*/];
-    });
-}); };
-var exportHandles = function (handleSet) {
-    // export handles in xml File
-    handleSet.forEach(function (handle) { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, handleFormat(handle)];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-};
-var GetAllHandles = function (key, secret, contestId) { return __awaiter(void 0, void 0, void 0, function () {
-    var client, handleSet, root;
+var GetAllProblems = function (key, secret, contestId) { return __awaiter(void 0, void 0, void 0, function () {
+    var client, problems, root;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 client = new CodeforcesClient_1.CodeforcesClient(key, secret);
-                handleSet = new Set();
-                return [4 /*yield*/, client.callMethod("contest.status", { contestId: contestId }).then(function (data) {
+                problems = [];
+                return [4 /*yield*/, client.callMethod("contest.standings", { contestId: contestId }).then(function (data) {
+                        //console.log(JSON.stringify(data));
                         return data;
                     })];
             case 1:
                 root = _a.sent();
-                return [4 /*yield*/, root.result.forEach(function (status) {
-                        status.author.members.forEach(function (object) {
-                            handleSet.add(object.handle);
-                        });
+                return [4 /*yield*/, root.result.problems.forEach(function (problem) {
+                        //console.log(problem.name);
+                        problems.push(problem.name);
                     })];
             case 2:
                 _a.sent();
-                exportHandles(handleSet);
-                return [2 /*return*/];
+                return [2 /*return*/, problems];
         }
     });
 }); };
-exports.GetAllHandles = GetAllHandles;
+exports.GetAllProblems = GetAllProblems;
 exports["default"] = CodeforcesClient_1.CodeforcesClient;
