@@ -11,7 +11,6 @@ const contestId:string = process.env.CONTEST_ID as string;
 
 
 // Run Your functions Here
-
 //GetAllHandles(key,secret,contestId);
 
 
