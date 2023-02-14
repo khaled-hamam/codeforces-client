@@ -3,7 +3,7 @@ exports.__esModule = true;
 var dotenv = require('dotenv');
 var CodeforcesClient_1 = require("./CodeforcesClient");
 var getAllHandels_1 = require("./getAllHandels");
-dotenv.config({ path: '../config.env' });
+dotenv.config({ path: '../.env' });
 var key = process.env.KEY;
 var secret = process.env.SECRET;
 var contestId = process.env.CONTEST_ID;

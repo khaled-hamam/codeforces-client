@@ -69,7 +69,7 @@ var handleFormat = function (handle) { return __awaiter(void 0, void 0, void 0, 
     });
 }); };
 var exportHandles = function (handleSet) {
-    // export handles in xml
+    // export handles in xml File
     handleSet.forEach(function (handle) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -89,6 +89,7 @@ var GetAllHandles = function (key, secret, contestId) { return __awaiter(void 0,
                 client = new CodeforcesClient_1.CodeforcesClient(key, secret);
                 handleSet = new Set();
                 return [4 /*yield*/, client.callMethod("contest.status", { contestId: contestId }).then(function (data) {
+                        console.log(data);
                         return data;
                     })];
             case 1:
