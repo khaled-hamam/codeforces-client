@@ -1,0 +1,22 @@
+"use strict";
+exports.__esModule = true;
+var Verdict;
+(function (Verdict) {
+    Verdict["FAILED"] = "FAILED";
+    Verdict["OK"] = "OK";
+    Verdict["PARTIAL"] = "PARTIAL";
+    Verdict["COMPILATION_ERROR"] = "COMPILATION_ERROR";
+    Verdict["RUNTIME_ERROR"] = "RUNTIME_ERROR";
+    Verdict["WRONG_ANSWER"] = "WRONG_ANSWER";
+    Verdict["PRESENTATION_ERROR"] = "PRESENTATION_ERROR";
+    Verdict["TIME_LIMIT_EXCEEDED"] = "TIME_LIMIT_EXCEEDED";
+    Verdict["MEMORY_LIMIT_EXCEEDED"] = "MEMORY_LIMIT_EXCEEDED";
+    Verdict["IDLENESS_LIMIT_EXCEEDED"] = "IDLENESS_LIMIT_EXCEEDED";
+    Verdict["SECURITY_VIOLATED"] = "SECURITY_VIOLATED";
+    Verdict["CRASHED"] = "CRASHED";
+    Verdict["INPUT_PREPARATION_CRASHED"] = "INPUT_PREPARATION_CRASHED";
+    Verdict["CHALLENGED"] = "CHALLENGED";
+    Verdict["SKIPPED"] = "SKIPPED";
+    Verdict["TESTING"] = "TESTING";
+    Verdict["REJECTED"] = "REJECTED";
+})(Verdict || (Verdict = {}));

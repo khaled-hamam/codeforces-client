@@ -1,6 +1,9 @@
+const randomstring = require("randomstring");
+const CryptoJS = require( 'crypto-js');
+//const axios = require('axios');
 import axios from 'axios';
-import randomstring from 'randomstring';
-import CryptoJS from 'crypto-js';
+//import randomstring from 'randomstring';
+//import CryptoJS from 'crypto-js';
 
 import { ICodeforcesClient } from './interfaces/codeforces-client.interface';
 import { sortObjectKeys } from './helpers/sortObjectKeys';
@@ -28,7 +31,7 @@ export class CodeforcesClient implements ICodeforcesClient {
   }
 
   private generateUrl<U>(method: string, params: U): string {
-    const randomStart = randomstring.generate(6);
+    const randomStart =  randomstring.generate(6);
     const time = Math.round(Date.now() / 1000);
     const apiSigParamsObject = sortObjectKeys({ ...params, apiKey: this.key, time });
     const apiSig = this.generateApiSig(randomStart, method, apiSigParamsObject);
